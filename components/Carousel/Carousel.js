@@ -33,40 +33,36 @@ function CreateCarousel(images) {
   //create elements
   const carousel = document.createElement("div");
   const leftBtn = document.createElement("div");
-  const img = document.createElement("img");
+  const carouselImg = document.createElement("img");
   const rightBtn = document.createElement("div");
 
   //classes & styles
   carousel.classList.add("carousel");
   leftBtn.classList.add("left-button");
   rightBtn.classList.add("right-button");
-  img.style.display = "block"; //temp unblock - need to add logic to only apply to current index image
+  carouselImg.style.display = "block"; //temp unblock - need to add logic to only apply to current index image
 
   //structure
   carousel.appendChild(leftBtn);
   carousel.appendChild(rightBtn);
-  carousel.appendChild(img);
+  carousel.appendChild(carouselImg);
 
   //content
   leftBtn.textContent = " < ";
   rightBtn.textContent = " > ";
   let i = 0;
-  img.src = images[i]; //sets default image displayed to 1st in array
+  carouselImg.src = images[i]; //sets default image displayed to 1st in array
 
   //events
   rightBtn.addEventListener("click", () => {
-    img.src = images[i];
-    while (i < images.length - 1) {
-      i++;
-    }
+    i < images.length - 1 ? i++ : (i = i);
+    carouselImg.src = images[i];
     console.log("Right clicked", i);
   });
 
   leftBtn.addEventListener("click", () => {
-    img.src = images[i];
-    while (i > 0) {
-      i--;
-    }
+    i > 0 ? i-- : (i = i);
+    carouselImg.src = images[i];
     console.log("Left clicked", i);
   });
 
