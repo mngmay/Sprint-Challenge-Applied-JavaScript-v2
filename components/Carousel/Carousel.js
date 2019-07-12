@@ -55,15 +55,15 @@ function CreateCarousel(images) {
 
   //events
   rightBtn.addEventListener("click", () => {
-    i < images.length ? i++ : (i = i);
-    i === images.length ? (i = 0) : (i = i);
+    i < images.length && i++;
+    i === images.length && (i = 0);
     carouselImg.src = images[i];
     // console.log("Right clicked", i);
   });
 
   leftBtn.addEventListener("click", () => {
-    i > 0 ? i-- : (i = i);
-    i === 0 ? (i = images.length - 1) : (i = i);
+    i > 0 && i--;
+    i === 0 && (i = images.length - 1);
     carouselImg.src = images[i];
     // console.log("Left clicked", i);
   });
