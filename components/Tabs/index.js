@@ -52,7 +52,7 @@ function CreateTab(tab) {
 
     let content = document.querySelectorAll(`.card[data-tab='${tabName}']`);
     content.forEach(card => (card.style.display = "block"));
-    console.log(content);
+    // console.log(content);
   });
 
   return newTab;
