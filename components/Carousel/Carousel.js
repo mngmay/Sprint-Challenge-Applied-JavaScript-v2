@@ -26,8 +26,6 @@ const imagesArray = [
 ];
 
 const carouselContainer = document.querySelector(".carousel-container");
-console.log(carouselContainer);
-console.log("test");
 
 carouselContainer.appendChild(CreateCarousel(imagesArray));
 
@@ -38,10 +36,11 @@ function CreateCarousel(images) {
   const img = document.createElement("img");
   const rightBtn = document.createElement("div");
 
-  //classes
+  //classes & styles
   carousel.classList.add("carousel");
   leftBtn.classList.add("left-button");
   rightBtn.classList.add("right-button");
+  img.style.display = "block"; //temp unblock - need to add logic to only apply to current index image
 
   //structure
   carousel.appendChild(leftBtn);
@@ -51,8 +50,22 @@ function CreateCarousel(images) {
   //content
   leftBtn.textContent = " < ";
   rightBtn.textContent = " > ";
-  img.src = images[0];
+  let i = 0;
+  // img.src = images[i]; //sets default image displayed to 1st in array
+  console.log(img);
 
-  console.log(carousel);
+  //events
+  rightBtn.addEventListener("click", () => {
+    img.src = images[i];
+    i = i + 1;
+    console.log("Right clicked", i);
+  });
+
+  leftBtn.addEventListener("click", () => {
+    img.src = images[i];
+    i = i - 1;
+    console.log("Left clicked", i);
+  });
+
   return carousel;
 }
