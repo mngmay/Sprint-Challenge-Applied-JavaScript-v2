@@ -24,8 +24,18 @@ const cardsContainer = document.querySelector(".cards-container");
 
 axios.get(`https://lambda-times-backend.herokuapp.com/articles`).then(data => {
   const articleTopics = data.data.articles;
-
   console.log("data check", articleTopics);
-  console.log("topics", articleTopics.javascript);
-  console.log("topics array", articleTopics.javascript[0]);
+
+  console.log("topics nodelist", articleTopics.javascript);
+  console.log("topic content", articleTopics.javascript[0]);
 });
+
+function createCard(cardInfo) {
+  //create elements
+  const card = document.createElement("div");
+  const headline = document.createElement("div");
+  const author = document.createElement("div");
+  const imgContainer = document.createElement("div");
+  const img = document.createElement("img");
+  const authorName = document.createElement("span");
+}
