@@ -29,20 +29,19 @@ axios.get(`https://lambda-times-backend.herokuapp.com/articles`).then(data => {
   //   console.log("article topics", keys);
   keys.forEach(key => {
     const articleTopic = articleTopics[key];
-    console.log("Topic's nodelist of articles", articleTopic);
+    // console.log("articles", articleTopic);
     articleTopic.forEach(article => {
-      cardsContainer.appendChild(createCard(article));
+      cardsContainer.appendChild(CreateCard(article));
     });
   });
 
+  //manual tests
   //   console.log("topics nodelist", articleTopics.javascript);
-  console.log("topic content", articleTopics.javascript[0]);
-
-  //manual test
-  cardsContainer.appendChild(createCard(articleTopics.javascript[0]));
+  //   console.log("topic content", articleTopics.javascript[0]);
+  //   cardsContainer.appendChild(CreateCard(articleTopics.javascript[0]));
 });
 
-function createCard(cardInfo) {
+function CreateCard(cardInfo) {
   //create elements
   const card = document.createElement("div");
   const headline = document.createElement("div");

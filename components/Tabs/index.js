@@ -18,7 +18,7 @@ axios
     // console.log("data check", data.data.topics);
     const topic = data.data.topics;
     topic.forEach(topic => {
-      const tab = createTab(topic);
+      const tab = CreateTab(topic);
       topics.appendChild(tab);
     });
   })
@@ -26,7 +26,7 @@ axios
     console.log("ERROR:", error);
   });
 
-function createTab(tab) {
+function CreateTab(tab) {
   //create element
   newTab = document.createElement("div");
 
