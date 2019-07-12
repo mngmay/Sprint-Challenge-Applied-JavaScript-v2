@@ -51,19 +51,22 @@ function CreateCarousel(images) {
   leftBtn.textContent = " < ";
   rightBtn.textContent = " > ";
   let i = 0;
-  // img.src = images[i]; //sets default image displayed to 1st in array
-  console.log(img);
+  img.src = images[i]; //sets default image displayed to 1st in array
 
   //events
   rightBtn.addEventListener("click", () => {
     img.src = images[i];
-    i = i + 1;
+    while (i < images.length - 1) {
+      i++;
+    }
     console.log("Right clicked", i);
   });
 
   leftBtn.addEventListener("click", () => {
     img.src = images[i];
-    i = i - 1;
+    while (i > 0) {
+      i--;
+    }
     console.log("Left clicked", i);
   });
 
