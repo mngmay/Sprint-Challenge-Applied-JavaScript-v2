@@ -32,11 +32,28 @@ function CreateTab(tab) {
 
   //add class & dataset
   newTab.classList.add("tab");
-  newTab.dataset.tab = tab;
-  console.log(newTab);
+
+  //workaround because node.js tab name does not match the key for the content
+  let tabName;
+  tab === "node.js" ? (tabName = "node") : (tabName = tab);
+  newTab.dataset.tab = tabName;
+  // console.log(newTab);
 
   //add content
   newTab.textContent = tab;
+
+  //events
+
+  newTab.addEventListener("click", () => {
+    //content I want to show
+    let allContent = document.querySelectorAll(".card");
+    //removes all cards from view
+    allContent.forEach(card => (card.style.display = "none"));
+
+    let content = document.querySelectorAll(`.card[data-tab='${tabName}']`);
+    content.forEach(card => (card.style.display = "block"));
+    console.log(content);
+  });
 
   return newTab;
 }

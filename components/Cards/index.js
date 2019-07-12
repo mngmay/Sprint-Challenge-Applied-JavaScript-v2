@@ -33,7 +33,7 @@ axios.get(`https://lambda-times-backend.herokuapp.com/articles`).then(data => {
     articleTopic.forEach(article => {
       const newArticle = CreateCard(article);
       newArticle.dataset.tab = key;
-      console.log(newArticle);
+      // console.log(newArticle);
       cardsContainer.appendChild(newArticle);
     });
   });
