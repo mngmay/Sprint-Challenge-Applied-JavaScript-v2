@@ -30,8 +30,10 @@ function CreateTab(tab) {
   //create element
   newTab = document.createElement("div");
 
-  //add class
+  //add class & dataset
   newTab.classList.add("tab");
+  newTab.dataset.tab = tab;
+  console.log(newTab);
 
   //add content
   newTab.textContent = tab;
