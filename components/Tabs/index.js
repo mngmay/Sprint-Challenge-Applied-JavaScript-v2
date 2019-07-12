@@ -10,7 +10,7 @@
 
 //grab dom node to add tabs to
 const topics = document.querySelector(".topics");
-console.log(topics);
+// console.log(topics);
 
 axios
   .get("https://lambda-times-backend.herokuapp.com/topics")
