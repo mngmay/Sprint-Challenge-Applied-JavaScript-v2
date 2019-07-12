@@ -27,6 +27,7 @@ const imagesArray = [
 
 const carouselContainer = document.querySelector(".carousel-container");
 console.log(carouselContainer);
+console.log("test");
 
 carouselContainer.appendChild(CreateCarousel(imagesArray));
 
