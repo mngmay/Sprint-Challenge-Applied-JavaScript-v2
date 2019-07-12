@@ -38,7 +38,7 @@ An interaction with the page such as a click, scroll, etc.
 
 3. What is an event listener?
 
-Code that 'listens' for a click event and applys a callback function when such event occurs.
+Code that 'listens' for a click event and applies a callback function when such event occurs.
 
 4. Why would we convert a NodeList into an Array?
 
