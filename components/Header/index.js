@@ -11,7 +11,7 @@
 
 //grab the dom node to add header to
 const headerContainer = document.querySelector(".header-container");
-console.log(headerContainer);
+// console.log(headerContainer);
 
 headerContainer.appendChild(Header());
 
@@ -36,7 +36,7 @@ function Header() {
   date.textContent = "SMARCH, 28, 2019";
   heading.textContent = "Lambda Times";
   temp.textContent = "98°";
-  console.log(header, date, heading, temp);
+  // console.log(header, date, heading, temp);
 
   return header;
 }
