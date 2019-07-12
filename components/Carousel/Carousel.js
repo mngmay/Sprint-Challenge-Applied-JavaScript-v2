@@ -18,12 +18,21 @@
   </div>
 */
 
+const imagesArray = [
+  "./assets/carousel/mountains.jpeg",
+  "./assets/carousel/computer.jpeg",
+  "./assets/carousel/trees.jpeg",
+  "./assets/carousel/turntable.jpeg"
+];
+
 const carouselContainer = document.querySelector(".carousel-container");
 console.log(carouselContainer);
 
-function CreateCarousel() {
+carouselContainer.appendChild(CreateCarousel(imagesArray));
+
+function CreateCarousel(images) {
   //create elements
-  const carousel = document.createElement("carousel");
+  const carousel = document.createElement("div");
   const leftBtn = document.createElement("div");
   const img = document.createElement("img");
   const rightBtn = document.createElement("div");
@@ -32,4 +41,17 @@ function CreateCarousel() {
   carousel.classList.add("carousel");
   leftBtn.classList.add("left-button");
   rightBtn.classList.add("right-button");
+
+  //structure
+  carousel.appendChild(leftBtn);
+  carousel.appendChild(rightBtn);
+  carousel.appendChild(img);
+
+  //content
+  leftBtn.textContent = " < ";
+  rightBtn.textContent = " > ";
+  img.src = images[0];
+
+  console.log(carousel);
+  return carousel;
 }
