@@ -9,18 +9,32 @@
 //    <div class="tab">topic here</div>
 
 //grab dom node to add tabs to
-const tabs = document.querySelector(".tabs");
+const topics = document.querySelector(".topics");
+console.log(topics);
 
 axios
   .get("https://lambda-times-backend.herokuapp.com/topics")
   .then(data => {
     // console.log("data check", data.data.topics);
-    const topics = data.data.topics;
-    topics.forEach(topic => {
+    const topic = data.data.topics;
+    topic.forEach(topic => {
       const tab = createTab(topic);
-      tabs.appendChild(tab);
+      topics.appendChild(tab);
     });
   })
   .catch(error => {
     console.log("ERROR:", error);
   });
+
+function createTab(tab) {
+  //create element
+  newTab = document.createElement("div");
+
+  //add class
+  newTab.classList.add("tab");
+
+  //add content
+  newTab.textContent = tab;
+
+  return newTab;
+}
