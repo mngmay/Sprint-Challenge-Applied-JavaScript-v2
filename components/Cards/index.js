@@ -24,10 +24,14 @@ const cardsContainer = document.querySelector(".cards-container");
 
 axios.get(`https://lambda-times-backend.herokuapp.com/articles`).then(data => {
   const articleTopics = data.data.articles;
-  console.log("data check", articleTopics);
+  //   console.log("data check", articleTopics);
+  const keys = Object.keys(articleTopics);
+  console.log(keys);
+  //   console.log("topics nodelist", articleTopics.javascript);
+  //   console.log("topic content", articleTopics.javascript[0]);
 
-  console.log("topics nodelist", articleTopics.javascript);
-  console.log("topic content", articleTopics.javascript[0]);
+  // keys.forEach(topic => {
+  //     const newTopic = articleTopics.topic;
 
   //manual test
   cardsContainer.appendChild(createCard(articleTopics.javascript[0]));
