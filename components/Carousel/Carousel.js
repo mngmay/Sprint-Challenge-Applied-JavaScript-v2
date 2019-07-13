@@ -17,3 +17,56 @@
     <div class="right-button"> > </div>
   </div>
 */
+
+const imagesArray = [
+  "./assets/carousel/mountains.jpeg",
+  "./assets/carousel/computer.jpeg",
+  "./assets/carousel/trees.jpeg",
+  "./assets/carousel/turntable.jpeg"
+];
+
+const carouselContainer = document.querySelector(".carousel-container");
+
+carouselContainer.appendChild(CreateCarousel(imagesArray));
+
+function CreateCarousel(images) {
+  //create elements
+  const carousel = document.createElement("div");
+  const leftBtn = document.createElement("div");
+  const carouselImg = document.createElement("img");
+  const rightBtn = document.createElement("div");
+
+  //classes & styles
+  carousel.classList.add("carousel");
+  leftBtn.classList.add("left-button");
+  rightBtn.classList.add("right-button");
+  carouselImg.style.display = "block"; //temp unblock - need to add logic to only apply to current index image
+
+  //structure
+  carousel.appendChild(leftBtn);
+  carousel.appendChild(rightBtn);
+  carousel.appendChild(carouselImg);
+
+  //content
+  leftBtn.textContent = " < ";
+  rightBtn.textContent = " > ";
+  let i = 0;
+  carouselImg.src = images[i]; //sets default image displayed to 1st in array
+
+  //events
+  rightBtn.addEventListener("click", () => {
+    i < images.length && i++;
+    i === images.length && (i = 0);
+    carouselImg.src = images[i];
+    // console.log("Right clicked", i);
+  });
+
+  leftBtn.addEventListener("click", () => {
+    i > 0 && i--;
+    i === 0 && (i = images.length - 1);
+    carouselImg.src = images[i];
+    // console.log("Left clicked", i);
+  });
+
+  return carousel;
+}
